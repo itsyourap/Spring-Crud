@@ -10,6 +10,8 @@
     background-position: center;
 
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("https://shorturl.at/zBW14");
+    /* background: rgb(2, 0, 36); */
+    /* background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(0, 36, 27, 1) 0%, rgba(0, 212, 255, 1) 100%); */
 }
 
 .landing_title {

@@ -12,6 +12,7 @@ import {
 
 import Landing from './component/landing/Landing';
 import EmployeeList from './component/employeelist/EmployeeList';
+import AddEmployee from './component/addEmployee/AddEmployee';
 
 
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/employeeList",
     element: <EmployeeList />,
+  },
+  {
+    path: "employeeList/addEmployee",
+    element: <AddEmployee />,
   },
 ]);
 

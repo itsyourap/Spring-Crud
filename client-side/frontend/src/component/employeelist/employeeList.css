@@ -8,7 +8,7 @@
     background: var(--bg-color);
     background-size: cover;
     align-content: center;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
     background-position: center;
 
@@ -20,7 +20,7 @@
     display: flex;
     align-self: center;
     font-size: var(--med);
-    margin: var(--large);
+    margin: 2rem 0;
     color: var(--secondary-color);
 }
 
@@ -37,13 +37,15 @@
 table {
     width: 100%;
     border-collapse: collapse;
+    border: 2px solid var(--primary-color);
+
 }
 
 td,
 th {
     padding: 8px;
     border: 2px solid var(--primary-color);
-
+    /* border-radius: 15px; */
 }
 
 td {
@@ -57,4 +59,11 @@ th {
     background-color: var(--primary-color);
     font-size: 20px;
 
+}
+
+
+
+.employee_btn {
+    margin-bottom: 1rem;
+    font-size: medium;
 }

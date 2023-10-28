@@ -1,0 +1,55 @@
+.add_container {
+    /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=e87ed8&c2=010101&gt=r&gd=dbr
+*/
+    background: #E87ED8;
+    background: radial-gradient(at right bottom, rgba(190, 225, 230, 1) 0%, rgba(0, 0, 0, 1) 46%);
+}
+
+.employee_form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    /* paddin; */
+    width: 20rem;
+    padding: 5rem;
+    background: rgba(190, 225, 230, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+    border-radius: 10px;
+}
+
+.employee_add_form {
+    display: flex;
+    flex-direction: column;
+}
+
+form {}
+
+input {
+    padding: 0.7rem;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Schibsted Grotesk', sans-serif;
+    color: black;
+    background: rgba(231, 176, 244, 0.65);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(18.5px);
+    -webkit-backdrop-filter: blur(18.5px);
+    border-radius: 10px;
+    /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+}
+
+label {
+    color: var(--hover-color);
+    margin: 0.5rem 0;
+}
+
+.submit_btn {
+    margin: 0.5rem 0;
+    font-size: medium;
+    padding: 0.6rem;
+    border-radius: 5px;
+}
