@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import './addEmployee.css'
+import './updateEmployee.css'
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import { SkipBackCircle } from "@phosphor-icons/react";
 import { useNavigate } from 'react-router-dom';
-const AddEmployee = () => {
+
+const UpdateEmployee = () => {
 
     const navigate = useNavigate();
 
-
+    const { id } = useParams();
     const [firstName, setFirstName] = useState(' ');
     const [lastName, setLastName] = useState(' ');
     const [emailId, setEmailId] = useState(' ');
@@ -21,31 +23,28 @@ const AddEmployee = () => {
     const changeEmailIdHandler = (event) => {
         setEmailId(event.target.value);
     }
-    const saveEmployee = () => {
+    const updateEmployee = () => {
 
-        const employeeData = { firstName, lastName, emailId };
+        const employeeData = { id, firstName, lastName, emailId };
 
         // You can use a library like Axios to make the HTTP request
         // Replace the following code with your actual API call
-        axios.post(`http://localhost:8080/api/v1/employees`, employeeData)
+        axios.put(`http://localhost:8080/api/v1/employees/${id}`, employeeData)
             .then(response => {
-                alert("added successfully");
+                alert("updated successfully");
                 setFirstName('');
                 setLastName('');
                 setEmailId('');
             })
             .catch(error => {
-                alert("Not added");
+                alert("Not updated");
             });
     };
     return (
         <>
             <div className="employee_container add_container">
-
-
                 <SkipBackCircle onClick={() => navigate(-1)} size={50} style={{ color: "var(--secondary-color)", cursor: 'pointer', margin: "1rem 0 0 0.5rem" }} />
-
-                <div className="employee_title">Add Employee</div>
+                <div className="employee_title">Update Employee</div>
 
                 <div className="employee_form section__margin">
                     <form className="employee_add_form" action="">
@@ -59,11 +58,11 @@ const AddEmployee = () => {
 
                     </form>
 
-                    <button className="submit_btn" onClick={saveEmployee}>Submit</button>
+                    <button className="submit_btn" onClick={updateEmployee}>Submit</button>
                 </div>
             </div>
         </>
     )
 }
 
-export default AddEmployee
+export default UpdateEmployee

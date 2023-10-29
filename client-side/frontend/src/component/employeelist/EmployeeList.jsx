@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import './employeeList.css'
 import { getEmployees } from '../../services/EmployeeService';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 
 const EmployeeList = () => {
-
 
 
 
@@ -15,6 +16,25 @@ const EmployeeList = () => {
             .then((data) => setEmployee(data))
             .catch((error) => console.error("Error fetching employees: " + error));
     }, []);
+
+
+    const deleteEmployee = (id) => {
+        if (window.confirm("Are you sure you want to delete this employee?")) {
+            // Make an HTTP DELETE request to delete the employee
+            axios
+                .delete(`http://localhost:8080/api/v1/employees/${id}`)
+                .then((response) => {
+                    // If the delete request is successful, update the state to remove the deleted employee
+                    setEmployee((prevEmployees) =>
+                        prevEmployees.filter((employee) => employee.id !== id)
+                    );
+                    alert('Employee deleted successfully');
+                })
+                .catch((error) => {
+                    alert('Failed to delete employee');
+                });
+        }
+    }
 
     return (
         <>
@@ -41,7 +61,17 @@ const EmployeeList = () => {
                                     <td>{employee.firstName}</td>
                                     <td>{employee.lastName}</td>
                                     <td>{employee.emailId}</td>
-                                    <td>{employee.actions}</td>
+                                    <td>
+
+                                        <div className="btn_container">
+                                            <Link style={{ textDecoration: 'none' }} to={`updateEmployee/${employee.id}`}>
+                                                <button style={{ fontSize: "medium" }}>Update</button>
+                                            </Link>
+
+                                            <button onClick={() => deleteEmployee(employee.id)} style={{ fontSize: "medium" }}>Delete</button>
+
+                                        </div>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
