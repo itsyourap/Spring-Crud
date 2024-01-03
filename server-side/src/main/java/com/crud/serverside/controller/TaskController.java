@@ -1,7 +1,9 @@
 package com.crud.serverside.controller;
 
 import com.crud.serverside.exception.ResourceNotFoundException;
+import com.crud.serverside.model.Employee;
 import com.crud.serverside.model.Task;
+import com.crud.serverside.repository.EmployeeRepository;
 import com.crud.serverside.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,9 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1/")
 public class TaskController {
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
     @Autowired
     private TaskRepository taskRepository;
 
@@ -62,6 +67,40 @@ public class TaskController {
         taskRepository.delete(task);
         Map<String, Boolean> response = new HashMap<>();
         response.put("Deleted", Boolean.TRUE);
+        return response;
+    }
+
+    // Add Employee to Task by ID
+    @PutMapping("/tasks/{taskId}/employees")
+    public Map<String, Boolean> assignEmployeeToTask(@PathVariable Long taskId, @RequestBody Map<String, Long> data) {
+        long employeeId = data.containsKey("employeeId") ? data.get("employeeId") : -1;
+
+        Task task = taskRepository.findById(taskId)
+                .orElseThrow(() -> new ResourceNotFoundException("Task does not exist with id:" + taskId));
+
+        Employee employee = employeeRepository.findById(employeeId)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with id:" + employeeId));
+
+        task.assignEmployee(employee);
+        taskRepository.save(task);
+
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("Assigned", Boolean.TRUE);
+        return response;
+    }
+
+    // Remove Employee from Task
+    @DeleteMapping("/tasks/{taskId}/employees/{employeeId}")
+    public Map<String, Boolean> removeEmployeeFromTask(@PathVariable Long taskId, @PathVariable Long employeeId) {
+        Task task = taskRepository.findById(taskId)
+                .orElseThrow(() -> new ResourceNotFoundException("Task does not exist with id:" + taskId));
+
+        Employee employee = employeeRepository.findById(employeeId)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with id:" + employeeId));
+
+        task.removeEmployeeAssignment(employee);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("Removed", Boolean.TRUE);
         return response;
     }
 }
