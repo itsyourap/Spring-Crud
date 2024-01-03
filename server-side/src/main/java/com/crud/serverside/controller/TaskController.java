@@ -72,7 +72,7 @@ public class TaskController {
 
     // Add Employee to Task by ID
     @PutMapping("/tasks/{taskId}/employees")
-    public Map<String, Boolean> assignEmployeeToTask(@PathVariable Long taskId, @RequestBody Map<String, Long> data) {
+    public ResponseEntity<Task> assignEmployeeToTask(@PathVariable Long taskId, @RequestBody Map<String, Long> data) {
         long employeeId = data.containsKey("employeeId") ? data.get("employeeId") : -1;
 
         Task task = taskRepository.findById(taskId)
@@ -82,16 +82,16 @@ public class TaskController {
                 .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with id:" + employeeId));
 
         boolean assigned = task.assignEmployee(employee);
-        taskRepository.save(task);
-
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("Assigned", assigned);
-        return response;
+        Task updatedTask = taskRepository.save(task);
+        if (assigned)
+            return ResponseEntity.ok(updatedTask);
+        else
+            return ResponseEntity.badRequest().body(updatedTask);
     }
 
     // Remove Employee from Task
     @DeleteMapping("/tasks/{taskId}/employees/{employeeId}")
-    public Map<String, Boolean> removeEmployeeFromTask(@PathVariable Long taskId, @PathVariable Long employeeId) {
+    public ResponseEntity<Task> removeEmployeeFromTask(@PathVariable Long taskId, @PathVariable Long employeeId) {
         Task task = taskRepository.findById(taskId)
                 .orElseThrow(() -> new ResourceNotFoundException("Task does not exist with id:" + taskId));
 
@@ -99,9 +99,10 @@ public class TaskController {
                 .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with id:" + employeeId));
 
         boolean removed = task.removeEmployeeAssignment(employee);
-        taskRepository.save(task);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("Removed", removed);
-        return response;
+        Task updatedTask = taskRepository.save(task);
+        if (removed)
+            return ResponseEntity.ok(updatedTask);
+        else
+            return ResponseEntity.badRequest().body(updatedTask);
     }
 }
