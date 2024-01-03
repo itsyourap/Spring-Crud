@@ -169,12 +169,10 @@ This example demonstrates a basic Spring Boot application with CRUD operations u
    ```
 
 2. **Backend Setup:**
-   - Navigate to the `backend` directory.
-   - Configure your MySQL database details in the `application.properties` file.
-   - Run the Spring Boot application:
-     ```bash
-     ./mvnw spring-boot:run
-     ```
+   - Download MySQL from [Here](https://www.mysql.com/downloads/)
+   - Start the MySQL server by using [MySQL Workbench](https://www.mysql.com/downloads/), [Table Plus](https://tableplus.com/) or similar application.
+   - Navigate to the `server-side/src/main/java/com/crud/serverside/ServerSideApplication.java` directory.
+   - Run the Spring Boot application using GUI by clicking Run Java.
 
 3. **Frontend Setup:**
    - Navigate to the `frontend` directory.
