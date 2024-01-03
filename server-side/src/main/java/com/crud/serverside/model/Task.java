@@ -3,6 +3,7 @@ package com.crud.serverside.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,6 +35,7 @@ public class Task {
         this.id = id;
         this.taskName = taskName;
         this.taskDescription = taskDescription;
+        this.assignedEmployees = new ArrayList<>();
     }
 
     public Task(long id, String taskName, String taskDescription, List<Employee> assignedEmployees) {
@@ -75,11 +77,11 @@ public class Task {
         this.assignedEmployees = assignedEmployees;
     }
 
-    public void assignEmployee(Employee employee){
-        this.assignedEmployees.add(employee);
+    public boolean assignEmployee(Employee employee){
+        return this.assignedEmployees.add(employee);
     }
 
-    public void removeEmployeeAssignment(Employee employee){
-        this.assignedEmployees.remove(employee);
+    public boolean removeEmployeeAssignment(Employee employee){
+        return this.assignedEmployees.remove(employee);
     }
 }

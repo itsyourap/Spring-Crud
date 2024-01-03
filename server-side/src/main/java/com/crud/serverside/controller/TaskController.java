@@ -81,11 +81,11 @@ public class TaskController {
         Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with id:" + employeeId));
 
-        task.assignEmployee(employee);
+        boolean assigned = task.assignEmployee(employee);
         taskRepository.save(task);
 
         Map<String, Boolean> response = new HashMap<>();
-        response.put("Assigned", Boolean.TRUE);
+        response.put("Assigned", assigned);
         return response;
     }
 
@@ -98,9 +98,10 @@ public class TaskController {
         Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with id:" + employeeId));
 
-        task.removeEmployeeAssignment(employee);
+        boolean removed = task.removeEmployeeAssignment(employee);
+        taskRepository.save(task);
         Map<String, Boolean> response = new HashMap<>();
-        response.put("Removed", Boolean.TRUE);
+        response.put("Removed", removed);
         return response;
     }
 }
