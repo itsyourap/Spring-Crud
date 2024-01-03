@@ -78,10 +78,16 @@ public class Task {
     }
 
     public boolean assignEmployee(Employee employee){
+        if (assignedEmployees.stream().anyMatch(o -> o.getId() == employee.getId()))
+            return false;
+
         return this.assignedEmployees.add(employee);
     }
 
     public boolean removeEmployeeAssignment(Employee employee){
-        return this.assignedEmployees.remove(employee);
+        if (assignedEmployees.stream().anyMatch(o ->  o.getId() == employee.getId()))
+            return this.assignedEmployees.remove(employee);
+
+        return false;
     }
 }
