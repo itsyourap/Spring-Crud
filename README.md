@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/images/spring-crud.png" alt="logo" width="600" />
+  <img src="https://github.com/debarshee2004/spring_crud/assets/129538241/ef3c7082-eb56-419d-83ec-6d4d456e3967" alt="logo" width="600" />
 </div>
 
 <div align="center">
@@ -14,8 +14,9 @@
 CRUD stands for Create, Read, Update, and Delete, which are the basic operations that can be performed on data in a database or data storage system. This concept is fundamental to database management and is often used in the context of web development, software engineering, and data management.
 
 <div align="center">
-  <img src="./assets/images/crud-diagram.png" alt="logo" width="600" />
+  <img src="https://github.com/debarshee2004/spring_crud/assets/129538241/5b446bee-134d-4393-a094-272bd2219529" alt="logo" width="600" />
 </div>
+<!-- ![crud-diagram](https://github.com/debarshee2004/spring_crud/assets/129538241/5b446bee-134d-4393-a094-272bd2219529) -->
 
 [Source of this image](https://docs.remaketheweb.com/static/crud-diagram.png)
 
@@ -150,15 +151,15 @@ This example demonstrates a basic Spring Boot application with CRUD operations u
 ## ScreenShots of the Application
 
 <div align="center">
-  <img src="./assets/images/scwa-home.png" alt="logo" width="600" />
+  <img src="https://github.com/debarshee2004/spring_crud/assets/129538241/fe4ea771-5c6c-4bcc-b685-4a1b2b997208" alt="logo" width="600" />
 </div>
 
 <div align="center">
-  <img src="./assets/images/scwa-list.png" alt="logo" width="600" />
+  <img src="https://github.com/debarshee2004/spring_crud/assets/129538241/a3079779-49d3-40b7-837a-0d4725574e55" alt="logo" width="600" />
 </div>
 
 <div align="center">
-  <img src="./assets/images/scwa-add.png" alt="logo" width="600" />
+  <img src="https://github.com/debarshee2004/spring_crud/assets/129538241/134073f3-a0cd-4704-8521-7027633080fb" alt="logo" width="600" />
 </div>
 
 ## How to Set Up Locally
