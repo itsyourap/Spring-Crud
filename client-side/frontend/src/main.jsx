@@ -15,6 +15,7 @@ import EmployeeList from './component/employeelist/EmployeeList';
 import AddEmployee from './component/addEmployee/AddEmployee';
 import UpdateEmployee from './component/updateEmployee/UpdateEmployee';
 import AddTask from "./component/addTask/AddTask.jsx";
+import UpdateTask from "./component/updateTask/UpdateTask.jsx";
 
 
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "taskList/addTask",
     element: <AddTask />
+  },
+  {
+    path: "taskList/updateTask/:id",
+    element: <UpdateTask />
   }
 ]);
 
