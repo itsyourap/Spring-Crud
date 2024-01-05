@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
@@ -31,8 +32,13 @@ public class TaskController {
 
     // Create New Task
     @PostMapping("/tasks")
-    public Task createTask(@RequestBody Task task) {
-        return taskRepository.save(task);
+    public ResponseEntity<Task> createTask(@RequestBody Task task) {
+        for (Employee employee : task.getAssignedEmployees()){
+            Optional<Employee> employeeInDb = employeeRepository.findById(employee.getId());
+            if (employeeInDb.isEmpty() || !employeeInDb.get().equals(employee))
+                return ResponseEntity.badRequest().body(task);
+        }
+        return ResponseEntity.ok(taskRepository.save(task));
     }
 
     // Get Task by ID
@@ -49,6 +55,12 @@ public class TaskController {
     public ResponseEntity<Task> updateTask(@PathVariable Long id, @RequestBody Task taskDetails) {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Task does not exist with id:" + id));
+
+        for (Employee employee : task.getAssignedEmployees()){
+            Optional<Employee> employeeInDb = employeeRepository.findById(employee.getId());
+            if (employeeInDb.isEmpty() || !employeeInDb.get().equals(employee))
+                return ResponseEntity.badRequest().body(task);
+        }
 
         task.setTaskName(taskDetails.getTaskName());
         task.setTaskDescription(task.getTaskDescription());
