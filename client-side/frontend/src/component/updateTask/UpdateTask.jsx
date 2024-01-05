@@ -141,7 +141,7 @@ const UpdateTask = () => {
 
                 <div className="task_title">Add Task</div>
 
-                <div className="employee_form section__margin">
+                <div className="task_form section__margin">
 
                     <form className="task_add_form" action="">
 
@@ -172,7 +172,7 @@ const UpdateTask = () => {
                         <button className="open_employee_list_btn" onClick={(event) => {
                             event.preventDefault();
                             openModal();
-                        }}>Add Employees
+                        }}>Assign Employees
                         </button>
                     </form>
                     <button className="submit_btn" onClick={saveTask}>Submit</button>
