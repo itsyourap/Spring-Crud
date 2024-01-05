@@ -52,13 +52,13 @@ const AddTask = () => {
         // You can use a library like Axios to make the HTTP request
         // Replace the following code with your actual API call
         axios.post(`http://localhost:8080/api/v1/tasks`, taskData)
-            .then(response => {
+            .then(() => {
                 alert("Task added successfully");
                 setTaskName('');
                 setTaskDescription('');
                 setAssignedEmployees([]);
             })
-            .catch(error => {
+            .catch(() => {
                 alert("Not added");
             });
     };

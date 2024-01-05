@@ -18,14 +18,14 @@ const TaskList = () => {
             // Make an HTTP DELETE request to delete the task
             axios
                 .delete(`http://localhost:8080/api/v1/tasks/${id}`)
-                .then((response) => {
+                .then(() => {
                     // If the delete request is successful, update the state to remove the deleted task
                     setTask((prevTasks) =>
                         prevTasks.filter((task) => task.id !== id)
                     );
                     alert('Task deleted successfully');
                 })
-                .catch((error) => {
+                .catch(() => {
                     alert('Failed to delete task');
                 });
         }

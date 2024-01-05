@@ -72,10 +72,10 @@ const UpdateTask = () => {
         // You can use a library like Axios to make the HTTP request
         // Replace the following code with your actual API call
         axios.put(`http://localhost:8080/api/v1/tasks/${id}`, taskData)
-            .then(response => {
+            .then(() => {
                 alert("Task updated successfully");
             })
-            .catch(error => {
+            .catch(() => {
                 alert("Not updated");
             });
     };
