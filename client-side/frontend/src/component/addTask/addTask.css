@@ -189,3 +189,23 @@ label {
     font-size: small;
     padding: 0.6rem;
 }
+
+@media screen and (max-width: 600px) {
+    .task_form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    label {
+        font-size: small;
+    }
+
+    input {
+        width: 250px;
+    }
+
+    .submit_btn {
+        width: 100px;
+    }
+}

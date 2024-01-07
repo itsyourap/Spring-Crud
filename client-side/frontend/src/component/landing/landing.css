@@ -24,11 +24,20 @@
     font-size: var(--large);
 }
 
+.button_div {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
 button {
     text-decoration: none !important;
     background-color: var(--hover-color);
     color: var(--bg-color);
     display: flex;
+    margin: 0 0.5em;
     align-self: center;
     justify-self: center;
     border: none;
@@ -55,6 +64,7 @@ button:hover {
     .landing_button {
         /* Adjust button styles for smaller screens */
         padding: 15px; /* Decrease padding for smaller screens */
+        margin: 0 10px;
         font-size: var(--small); /* Adjust font size for smaller screens */
     }
 }
