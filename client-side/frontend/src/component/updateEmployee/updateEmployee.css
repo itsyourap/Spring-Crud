@@ -27,8 +27,6 @@
     flex-direction: column;
 }
 
-form {}
-
 input {
     padding: 0.7rem;
     border-radius: 5px;
@@ -53,4 +51,24 @@ label {
     font-size: medium;
     padding: 0.6rem;
     border-radius: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .employee_form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    label{
+        font-size: small;
+    }
+
+    input{
+        width: 250px;
+    }
+
+    .submit_btn{
+        width: 100px;
+    }
 }

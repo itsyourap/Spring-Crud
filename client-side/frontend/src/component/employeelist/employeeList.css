@@ -23,7 +23,6 @@
             hsl(338deg 27% 61%) 102%,
             hsl(338deg 37% 70%) 101%,
             hsl(338deg 54% 79%) 100%);
-
 }
 
 
@@ -95,8 +94,14 @@ tbody {
 
 
 .employee_btn {
-    margin-bottom: 1rem;
+    margin-bottom: 12px;
+    padding: 8px;
+    border-radius: 10px;
     font-size: medium;
+}
+
+.employee_btn:hover{
+    background-color: #CCC;
 }
 
 .btn_container {
@@ -104,4 +109,48 @@ tbody {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .employee_container {
+        min-height: 100vh;
+        height: auto;
+        width: 100%;
+        display: flex;
+        /* justify-content: center; */
+        align-items: flex-start;
+    }
+
+    .employee_title {
+        font-size: var(--small);
+    }
+
+    .employee_btn{
+        font-size: small;
+        padding: 4px;
+    }
+
+    .employee_table{
+        margin: 10px;
+        margin-top: 20px;
+    }
+
+    table {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    th {
+        padding: 4px;
+        font-size: 8px;
+    }
+
+    td {
+        font-size: medium;
+    }
+
+    .btn_container {
+        flex-direction: column;
+    }
 }

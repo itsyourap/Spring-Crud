@@ -45,7 +45,16 @@ button:hover {
     transition: 0.5s ease;
 }
 
-.landing_button {
-    display: inline-block;
-    margin:0.5em 0.5em;
+/* Media query for screens with a maximum width of 600px (typical for mobile devices) */
+@media screen and (max-width: 600px) {
+    .landing_title{
+        font-size: large;
+        padding: 20px;
+    }
+
+    .landing_button {
+        /* Adjust button styles for smaller screens */
+        padding: 15px; /* Decrease padding for smaller screens */
+        font-size: var(--small); /* Adjust font size for smaller screens */
+    }
 }
