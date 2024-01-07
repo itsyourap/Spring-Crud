@@ -1,11 +1,6 @@
 package com.crud.serverside.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "employees")
@@ -71,4 +66,11 @@ public class Employee {
         this.emailId = emailId;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Employee that) {
+            return this.id == that.getId() && this.firstName.equals(that.getFirstName()) && this.lastName.equals(that.getLastName()) && this.emailId.equals(that.getEmailId());
+        }
+        return false;
+    }
 }
