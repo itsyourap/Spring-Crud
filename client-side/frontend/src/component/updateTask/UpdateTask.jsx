@@ -107,10 +107,10 @@ const UpdateTask = () => {
                                 employee.map((employee) =>
                                     (
                                         <tr key={employee.id}>
-                                            <td>{employee.firstName}</td>
-                                            <td>{employee.lastName}</td>
-                                            <td>{employee.emailId}</td>
-                                            <td>
+                                            <td style={{color: 'black'}}>{employee.firstName}</td>
+                                            <td style={{color: 'black'}}>{employee.lastName}</td>
+                                            <td style={{color: 'black'}}>{employee.emailId}</td>
+                                            <td style={{color: 'black'}}>
 
                                                 <div className="btn_container">
                                                     {
