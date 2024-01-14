@@ -21,6 +21,12 @@ const Landing = () => {
                             Tasks
                         </button>
                     </Link>
+
+                    <Link style={{ textDecoration: 'none' }} to={`attendanceList`}>
+                        <button className="landing_button btn">
+                            Attendance
+                        </button>
+                    </Link>
                 </div>
             </div>
         </>
