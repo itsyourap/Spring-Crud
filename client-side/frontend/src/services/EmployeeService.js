@@ -1,6 +1,7 @@
 import axios from 'axios';
+import API_HOST from '../Constants';
 
-const EMPLOYEE_API_BASE_URL = "http://localhost:8080/api/v1/employees";
+const EMPLOYEE_API_BASE_URL = API_HOST + "/api/v1/employees";
 
 const getEmployees = async () => {
     try {

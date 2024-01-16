@@ -1,6 +1,7 @@
 import axios from 'axios';
+import API_HOST from '../Constants';
 
-const ATTENDANCE_API_BASE_URL = "http://localhost:8080/api/v1/attendance";
+const ATTENDANCE_API_BASE_URL = API_HOST + "/api/v1/attendance";
 
 const getAttendances = async () => {
     try {

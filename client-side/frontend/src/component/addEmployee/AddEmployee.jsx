@@ -3,6 +3,7 @@ import './addEmployee.css'
 import axios from 'axios';
 import { SkipBackCircle } from "@phosphor-icons/react";
 import { useNavigate } from 'react-router-dom';
+import API_HOST from '../../Constants';
 const AddEmployee = () => {
 
     const navigate = useNavigate();
@@ -27,7 +28,7 @@ const AddEmployee = () => {
 
         // You can use a library like Axios to make the HTTP request
         // Replace the following code with your actual API call
-        axios.post(`http://localhost:8080/api/v1/employees`, employeeData)
+        axios.post(`${API_HOST}/api/v1/employees`, employeeData)
             .then(response => {
                 alert("added successfully");
                 setFirstName('');

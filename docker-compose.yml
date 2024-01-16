@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  database:
+    image: mysql:8.0.35-debian
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: Rimo2002#
+      MYSQL_DATABASE: employee_management_system
+    volumes:
+      - data:/var/lib/mysql
+  
+  backend:
+    build: ./server-side
+    depends_on:
+      - database
+    ports:
+      - 8080:8080
+
+  frontend:
+    build: ./client-side/frontend
+    depends_on:
+      - backend
+    ports:
+      - 80:5173
+
+volumes:
+  data:

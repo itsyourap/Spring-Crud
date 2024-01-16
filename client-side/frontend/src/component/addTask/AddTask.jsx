@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
-import './AddTask.css';
+import './addTask.css';
 import {SkipBackCircle} from "@phosphor-icons/react";
 import {useNavigate} from 'react-router-dom';
 import Modal from 'react-modal';

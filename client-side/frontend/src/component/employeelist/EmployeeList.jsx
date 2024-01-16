@@ -3,6 +3,7 @@ import './employeeList.css'
 import { getEmployees } from '../../services/EmployeeService';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import API_HOST from '../../Constants';
 
 
 const EmployeeList = () => {
@@ -22,7 +23,7 @@ const EmployeeList = () => {
         if (window.confirm("Are you sure you want to delete this employee?")) {
             // Make an HTTP DELETE request to delete the employee
             axios
-                .delete(`http://localhost:8080/api/v1/employees/${id}`)
+                .delete(`${API_HOST}/api/v1/employees/${id}`)
                 .then((response) => {
                     // If the delete request is successful, update the state to remove the deleted employee
                     setEmployee((prevEmployees) =>

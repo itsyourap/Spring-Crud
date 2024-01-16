@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { SkipBackCircle } from "@phosphor-icons/react";
 import { useNavigate } from 'react-router-dom';
+import API_HOST from '../../Constants';
 
 const UpdateEmployee = () => {
 
@@ -26,7 +27,7 @@ const UpdateEmployee = () => {
 
     const getEmployeeById = async (employeeId) => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/v1/employees/${employeeId}`);
+            const response = await axios.get(`${API_HOST}/api/v1/employees/${employeeId}`);
             return response.data;
         } catch (error) {
             throw error;
