@@ -39,3 +39,9 @@ jobs:
       - name: Build with Maven
         working-directory: ./server-side
         run: mvn clean package -DskipTests
+
+      - name: Upload the build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-build-artifacts
+          path: ./server-side/target/*.jar
