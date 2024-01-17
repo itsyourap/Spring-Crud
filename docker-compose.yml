@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  database:
+    hostname: ${MYSQL_DB_HOST}
+    image: mysql:8.0.35-debian
+    ports:
+      - 3306:3306
+    env_file:
+      - .env.default
+      - .env
+    healthcheck:
+            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+            timeout: 5s
+            retries: 10
+    volumes:
+      - data:/var/lib/mysql
+  
+  backend:
+    build: ./server-side
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - 8080:8080
+    env_file:
+      - .env.default
+      - .env
+
+  frontend:
+    build: ./client-side/frontend
+    depends_on:
+      - backend
+    ports:
+      - 5173:5173
+
+# To persist the mysql database among sessions
+volumes:
+  data:
