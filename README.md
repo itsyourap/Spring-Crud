@@ -169,25 +169,16 @@ This example demonstrates a basic Spring Boot application with CRUD operations u
    git clone https://github.com/bishakhne0gi/Spring-Crud.git
    ```
 
-2. **Backend Setup:**
-   - Download MySQL from [Here](https://www.mysql.com/downloads/)
-   - Start the MySQL server by using [MySQL Workbench](https://www.mysql.com/downloads/), [Table Plus](https://tableplus.com/) or similar application.
-   - Navigate to the `server-side/src/main/java/com/crud/serverside/ServerSideApplication.java` directory.
-   - Run the Spring Boot application using GUI by clicking Run Java.
+2. **Setup:**
+   - Follow [these steps](https://docs.docker.com/get-docker/) to install Docker
+   - Open a Terminal inside the root of this repository you just cloned
+   - Run `docker compose up`
+   
+   Wait for a few minutes for the Docker Container to build and the application will start automatically.
 
-3. **Frontend Setup:**
-   - Navigate to the `frontend` directory.
-   - Install dependencies:
-     ```bash
-     npm install
-     ```
-   - Start the development server:
-     ```bash
-     npm run dev
-     ```
-
-4. **Access the Application:**
-   Open your browser and go to [http://localhost:3000](http://localhost:3000) to access the CRUD application.
+3. **Access the Application:**
+   
+   Open your browser and go to [http://localhost:5173](http://localhost:5173) to access the CRUD application frontend.
 
 ## License
 
