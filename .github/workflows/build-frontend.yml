@@ -1,0 +1,52 @@
+name: Build Frontend
+
+on: 
+    workflow_dispatch:
+    pull_request:
+      branches: [ main ]
+      paths:
+        - 'client-side/frontend/src/**'
+        - 'client-side/frontend/package*.json'
+        - 'client-side/frontend/*.html'
+        - 'client-side/frontend/*.js'
+        - '.github/workflows/build-frontend.yml'
+    push:
+      branches: [ main ]
+      paths:
+        - 'client-side/frontend/src/**'
+        - 'client-side/frontend/package*.json'
+        - 'client-side/frontend/*.html'
+        - 'client-side/frontend/*.js'
+        - '.github/workflows/build-frontend.yml'
+
+jobs:
+  build-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      
+      - name: Set up the Node dependencies caching
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      
+      - name: Install Node dependencies
+        working-directory: ./client-side/frontend
+        run: npm install
+
+      - name: Build the frontend
+        working-directory: ./client-side/frontend
+        run: npm run build
+
+      - name: Upload the build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build-artifact
+          path: ./client-side/frontend/dist/
