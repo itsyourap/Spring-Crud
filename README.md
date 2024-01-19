@@ -7,6 +7,7 @@
   <img src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="logo" width="100" />
   <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="logo" width="100" />
   <img src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" alt="logo" width="100" />
+  <img src="https://img.shields.io/badge/docker-%231D63ED.svg?style=for-the-badge&logo=docker&logoColor=white" alt="logo" width="100" />
 </div>
 
 ## What is CRUD?
@@ -33,6 +34,9 @@ In this CRUD application, we are managing an employee list with fields such as f
 
 - **Database:**
   - MySQL - A relational database management system.
+
+- **Container:**
+  - Docker - An open platform for developing, shipping, and running applications.
 
 ## How does a Spring based CRUD operation works?
 
@@ -169,25 +173,16 @@ This example demonstrates a basic Spring Boot application with CRUD operations u
    git clone https://github.com/bishakhne0gi/Spring-Crud.git
    ```
 
-2. **Backend Setup:**
-   - Download MySQL from [Here](https://www.mysql.com/downloads/)
-   - Start the MySQL server by using [MySQL Workbench](https://www.mysql.com/downloads/), [Table Plus](https://tableplus.com/) or similar application.
-   - Navigate to the `server-side/src/main/java/com/crud/serverside/ServerSideApplication.java` directory.
-   - Run the Spring Boot application using GUI by clicking Run Java.
+2. **Setup:**
+   - Follow [these steps](https://docs.docker.com/get-docker/) to install Docker
+   - Open a Terminal inside the root of this repository you just cloned
+   - Run `docker compose up`
+   
+   Wait for a few minutes for the Docker Container to build and the application will start automatically.
 
-3. **Frontend Setup:**
-   - Navigate to the `frontend` directory.
-   - Install dependencies:
-     ```bash
-     npm install
-     ```
-   - Start the development server:
-     ```bash
-     npm run dev
-     ```
-
-4. **Access the Application:**
-   Open your browser and go to [http://localhost:3000](http://localhost:3000) to access the CRUD application.
+3. **Access the Application:**
+   
+   Open your browser and go to [http://localhost:5173](http://localhost:5173) to access the CRUD application frontend.
 
 ## License
 
