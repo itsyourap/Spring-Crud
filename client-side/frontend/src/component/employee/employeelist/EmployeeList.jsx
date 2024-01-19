@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './employeeList.css'
-import { getEmployees } from '../../services/EmployeeService';
+import { getEmployees } from '../../../services/EmployeeService.js';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 

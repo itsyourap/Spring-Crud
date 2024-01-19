@@ -10,12 +10,12 @@ import {
 
 
 import Landing from './component/landing/Landing';
-import EmployeeList from './component/employeelist/EmployeeList';
-import AddEmployee from './component/addEmployee/AddEmployee';
-import UpdateEmployee from './component/updateEmployee/UpdateEmployee';
-import AddTask from "./component/addTask/AddTask.jsx";
-import UpdateTask from "./component/updateTask/UpdateTask.jsx";
-import TaskList from "./component/taskList/TaskList.jsx";
+import EmployeeList from './component/employee/employeelist/EmployeeList';
+import AddEmployee from './component/employee/addEmployee/AddEmployee';
+import UpdateEmployee from './component/employee/updateEmployee/UpdateEmployee';
+import AddTask from "./component/task/addTask/AddTask.jsx";
+import UpdateTask from "./component/task/updateTask/UpdateTask.jsx";
+import TaskList from "./component/task/taskList/TaskList.jsx";
 import AttendanceList from "./component/attendance/attendanceList/AttendanceList.jsx";
 import AddAttendance from "./component/attendance/addAttendance/AddAttendance.jsx";
 import UpdateAttendance from "./component/attendance/updateAttendance/UpdateAttendance.jsx";
