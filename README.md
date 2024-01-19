@@ -34,6 +34,9 @@ In this CRUD application, we are managing an employee list with fields such as f
 - **Database:**
   - MySQL - A relational database management system.
 
+- **Container:**
+  - Docker - An open platform for developing, shipping, and running applications.
+
 ## How does a Spring based CRUD operation works?
 
 A Spring-based CRUD (Create, Read, Update, Delete) operation typically involves creating a web application that performs these basic database operations. Here, I'll provide a simple example using Spring Boot and Spring Data JPA for data persistence.
