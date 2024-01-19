@@ -20,6 +20,27 @@ import AttendanceList from "./component/attendance/attendanceList/AttendanceList
 import AddAttendance from "./component/attendance/addAttendance/AddAttendance.jsx";
 import UpdateAttendance from "./component/attendance/updateAttendance/UpdateAttendance.jsx";
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyAL_EGDlr1gNE6pap986DyKqnycSMl5wmQ",
+    authDomain: "spring-crud-ne0gi02.firebaseapp.com",
+    projectId: "spring-crud-ne0gi02",
+    storageBucket: "spring-crud-ne0gi02.appspot.com",
+    messagingSenderId: "927258230546",
+    appId: "1:927258230546:web:6f6fc0cfb1d2702d7b3dcb",
+    measurementId: "G-D9X46QD0Z3"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 const router = createBrowserRouter([
     {
