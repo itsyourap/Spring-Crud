@@ -1,5 +1,6 @@
 package com.crud.serverside.controller;
 
+import com.crud.serverside.exception.ResourceNotFoundException;
 import com.crud.serverside.model.Employee;
 import com.crud.serverside.repository.EmployeeRepository;
 import com.google.firebase.FirebaseApp;
@@ -25,6 +26,7 @@ public class LoginController {
     public Employee loginEmployee(@RequestBody Map<String, String> loginData) throws FirebaseAuthException {
         String uid = loginData.get("uid");
         UserRecord userRecord = FirebaseAuth.getInstance(firebaseApp).getUser(uid);
-        return employeeRepository.findEmployeeByEmailId(userRecord.getEmail());
+        return employeeRepository.findEmployeeByEmailId(userRecord.getEmail())
+                .orElseThrow(() -> new ResourceNotFoundException("Employee not found with email"));
     }
 }
