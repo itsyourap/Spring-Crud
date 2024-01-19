@@ -4,7 +4,7 @@ import './UpdateTask.css';
 import {SkipBackCircle} from "@phosphor-icons/react";
 import {useNavigate, useParams} from 'react-router-dom';
 import Modal from 'react-modal';
-import {getEmployees} from "../../services/EmployeeService.js";
+import {getEmployees} from "../../../services/EmployeeService.js";
 
 const UpdateTask = () => {
     const navigate = useNavigate();

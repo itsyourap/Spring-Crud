@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './taskList.css'
-import {getTasks} from '../../services/TaskService';
+import {getTasks} from '../../../services/TaskService.js';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
