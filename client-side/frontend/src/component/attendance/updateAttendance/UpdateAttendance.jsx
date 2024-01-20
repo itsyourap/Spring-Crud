@@ -5,6 +5,7 @@ import {SkipBackCircle} from "@phosphor-icons/react";
 import {useNavigate, useParams} from 'react-router-dom';
 import Modal from 'react-modal';
 import {getEmployees} from "../../../services/EmployeeService.js";
+import API_BASE_URL from "../../../constants/apiConstant.js";
 
 const UpdateAttendance = () => {
     const navigate = useNavigate();
@@ -45,7 +46,7 @@ const UpdateAttendance = () => {
 
     const getAttendanceRecordById = async (attendanceId) => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/v1/attendance/${attendanceId}`);
+            const response = await axios.get(`${API_BASE_URL}/attendance/${attendanceId}`);
             return response.data;
         } catch (error) {
             throw error;
@@ -66,7 +67,7 @@ const UpdateAttendance = () => {
 
         // You can use a library like Axios to make the HTTP request
         // Replace the following code with your actual API call
-        axios.put(`http://localhost:8080/api/v1/attendance/${id}`, attendanceData)
+        axios.put(`${API_BASE_URL}/attendance/${id}`, attendanceData)
             .then(() => {
                 alert("Attendance Record updated successfully");
             })

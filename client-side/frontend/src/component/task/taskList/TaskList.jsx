@@ -3,6 +3,7 @@ import './taskList.css'
 import {getTasks} from '../../../services/TaskService.js';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import API_BASE_URL from "../../../constants/apiConstant.js";
 
 const TaskList = () => {
     const [task, setTask] = useState([]);
@@ -17,7 +18,7 @@ const TaskList = () => {
         if (window.confirm("Are you sure you want to delete this task?")) {
             // Make an HTTP DELETE request to delete the task
             axios
-                .delete(`http://localhost:8080/api/v1/tasks/${id}`)
+                .delete(`${API_BASE_URL}/tasks/${id}`)
                 .then(() => {
                     // If the delete request is successful, update the state to remove the deleted task
                     setTask((prevTasks) =>

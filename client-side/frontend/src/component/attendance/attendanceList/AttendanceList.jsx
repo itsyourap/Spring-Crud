@@ -3,6 +3,7 @@ import './attendanceList.css'
 import {getAttendances} from '../../../services/AttendanceService';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import API_BASE_URL from "../../../constants/apiConstant.js";
 
 const AttendanceList = () => {
     const [attendance, setAttendance] = useState([]);
@@ -17,7 +18,7 @@ const AttendanceList = () => {
         if (window.confirm("Are you sure you want to delete this Attendance Record?")) {
             // Make an HTTP DELETE request to delete the Attendance Record
             axios
-                .delete(`http://localhost:8080/api/v1/attendance/${id}`)
+                .delete(`${API_BASE_URL}/attendance/${id}`)
                 .then(() => {
                     // If the delete request is successful, update the state to remove the deleted attendance record
                     setAttendance((prevAttendance) =>
