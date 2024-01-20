@@ -5,6 +5,7 @@ import {SkipBackCircle} from "@phosphor-icons/react";
 import {useNavigate} from 'react-router-dom';
 import Modal from 'react-modal';
 import {getEmployees} from "../../../services/EmployeeService.js";
+import API_BASE_URL from "../../../constants/apiConstant.js";
 
 const AddTask = () => {
     const navigate = useNavigate();
@@ -51,7 +52,7 @@ const AddTask = () => {
 
         // You can use a library like Axios to make the HTTP request
         // Replace the following code with your actual API call
-        axios.post(`http://localhost:8080/api/v1/tasks`, taskData)
+        axios.post(`${API_BASE_URL}/tasks`, taskData)
             .then(() => {
                 alert("Task added successfully");
                 setTaskName('');

@@ -4,9 +4,9 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { SkipBackCircle } from "@phosphor-icons/react";
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from "../../../constants/apiConstant.js";
 
 const UpdateEmployee = () => {
-
     const navigate = useNavigate();
 
     const { id } = useParams();
@@ -26,7 +26,7 @@ const UpdateEmployee = () => {
 
     const getEmployeeById = async (employeeId) => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/v1/employees/${employeeId}`);
+            const response = await axios.get(`${API_BASE_URL}/employees/${employeeId}`);
             return response.data;
         } catch (error) {
             throw error;
@@ -49,7 +49,7 @@ const UpdateEmployee = () => {
 
         // You can use a library like Axios to make the HTTP request
         // Replace the following code with your actual API call
-        axios.put(`http://localhost:8080/api/v1/employees/${id}`, employeeData)
+        axios.put(`${API_BASE_URL}/employees/${id}`, employeeData)
             .then(response => {
                 alert("updated successfully");
                 setFirstName('');

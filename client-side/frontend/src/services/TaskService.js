@@ -1,6 +1,7 @@
 import axios from 'axios';
+import API_BASE_URL from "../constants/apiConstant.js";
 
-const TASK_API_BASE_URL = "http://localhost:8080/api/v1/tasks";
+const TASK_API_BASE_URL = API_BASE_URL + "/tasks";
 
 const getTasks = async () => {
     try {

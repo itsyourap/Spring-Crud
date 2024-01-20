@@ -1,28 +1,16 @@
 package com.crud.serverside.controller;
 
+import com.crud.serverside.exception.ResourceNotFoundException;
+import com.crud.serverside.model.Employee;
+import com.crud.serverside.repository.EmployeeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.text.StyledEditorKit.BoldAction;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.crud.serverside.exception.ResourceNotFoundException;
-import com.crud.serverside.model.Employee;
-import com.crud.serverside.repository.EmployeeRepository;
-
-@CrossOrigin(origins = "http://localhost:5173")
 
 @RestController
 
@@ -54,7 +42,6 @@ public class EmployeeController {
         return ResponseEntity.ok(employee);
     }
 
-    @CrossOrigin(origins = "http://localhost:5173")
     // update employee ret api
     @PutMapping("/employees/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employeeDetails) {

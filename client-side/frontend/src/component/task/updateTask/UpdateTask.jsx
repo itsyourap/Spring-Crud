@@ -5,6 +5,7 @@ import {SkipBackCircle} from "@phosphor-icons/react";
 import {useNavigate, useParams} from 'react-router-dom';
 import Modal from 'react-modal';
 import {getEmployees} from "../../../services/EmployeeService.js";
+import API_BASE_URL from "../../../constants/apiConstant.js";
 
 const UpdateTask = () => {
     const navigate = useNavigate();
@@ -49,7 +50,7 @@ const UpdateTask = () => {
 
     const getTaskById = async (taskId) => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/v1/tasks/${taskId}`);
+            const response = await axios.get(`${API_BASE_URL}/tasks/${taskId}`);
             return response.data;
         } catch (error) {
             throw error;
@@ -71,7 +72,7 @@ const UpdateTask = () => {
 
         // You can use a library like Axios to make the HTTP request
         // Replace the following code with your actual API call
-        axios.put(`http://localhost:8080/api/v1/tasks/${id}`, taskData)
+        axios.put(`${API_BASE_URL}/tasks/${id}`, taskData)
             .then(() => {
                 alert("Task updated successfully");
             })
