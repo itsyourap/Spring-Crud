@@ -1,0 +1,62 @@
+name: Deploy Backend
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "server-side/src/**"
+      - ".github/workflows/deploy-backend.yml"
+
+jobs:
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Set up the Maven dependencies caching
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: Install Maven dependencies
+        working-directory: ./server-side
+        run: mvn dependency:resolve
+
+      - name: Build with Maven
+        working-directory: ./server-side
+        run: mvn clean package -DskipTests
+
+      - name: Upload the build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-app
+          path: ./server-side/target/*.jar
+
+  deploy-backend:
+    runs-on: ubuntu-latest
+    needs: build-backend
+    environment:
+      name: "production"
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: java-app
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: "spring-crud-ne0gi02"
+          slot-name: "production"
+          package: "*.jar"
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_e06dfc7f57fa4e0a8b1325e061a7f777 }}
