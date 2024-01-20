@@ -13,7 +13,7 @@ import java.util.Map;
 
 
 @RestController
-
+@CrossOrigin
 // rest api mapping
 @RequestMapping("/api/v1/")
 public class EmployeeController {
