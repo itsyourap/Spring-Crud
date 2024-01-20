@@ -2,6 +2,7 @@ package com.crud.serverside.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -16,6 +17,9 @@ public class Event {
 
     @Column(name = "event_description")
     private String eventDescription;
+
+    @Column(name = "event_datetime")
+    private LocalDateTime eventDateTime;
 
     public Event(){
 
@@ -49,5 +53,13 @@ public class Event {
 
     public void setEventDescription(String eventLink) {
         this.eventDescription = eventLink;
+    }
+
+    public LocalDateTime getEventDateTime() {
+        return eventDateTime;
+    }
+
+    public void setEventDateTime(LocalDateTime eventDateTime) {
+        this.eventDateTime = eventDateTime;
     }
 }

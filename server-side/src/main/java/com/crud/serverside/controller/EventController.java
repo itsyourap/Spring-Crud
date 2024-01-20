@@ -1,9 +1,7 @@
 package com.crud.serverside.controller;
 
 import com.crud.serverside.exception.ResourceNotFoundException;
-import com.crud.serverside.model.Employee;
 import com.crud.serverside.model.Event;
-import com.crud.serverside.repository.EmployeeRepository;
 import com.crud.serverside.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,15 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/api/v1/")
 public class EventController {
-    @Autowired
-    private EmployeeRepository employeeRepository;
-
     @Autowired
     private EventRepository eventRepository;
 
@@ -52,7 +46,8 @@ public class EventController {
                 .orElseThrow(() -> new ResourceNotFoundException("Event does not exist with id:" + id));
 
         event.setEventName(eventDetails.getEventName());
-        event.setEventDescription(event.getEventDescription());
+        event.setEventDescription(eventDetails.getEventDescription());
+        event.setEventDateTime(eventDetails.getEventDateTime());
         Event updateEvent = eventRepository.save(event);
         return ResponseEntity.ok(updateEvent);
     }
